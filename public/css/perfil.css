@@ -1,12 +1,4 @@
-
-
-/* 
-    fondo gris: #e6e9ed
-*/
-body {
-    position: static;
-}
-.header--blogs {
+/* .header--perfil {
     position: static;
 }
 main {
@@ -14,7 +6,7 @@ main {
     min-width: 320px;
     height: auto;
 }
-    .pinned-blog {
+    .profile__head {
         width: 100%;
         min-width: 320px;
         height: auto;
@@ -25,14 +17,7 @@ main {
 
         background-color: #e6e9ed;
     }
-        .pinned-blog__principal-title { /* fila 1 */
-            width: 90%;
-            min-width: 220px;
-            max-width: 1200px;
-            font-weight: 700;
-            font-size: 1.4rem;
-        }
-        .pinned-blog__container { /* fila 2 */
+        .profile__head-container { 
             width: 90%;
             min-width: 220px;
             max-width: 1200px;
@@ -43,25 +28,25 @@ main {
             grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
             align-items: center;
             justify-items: center;
-            margin-bottom: 40px;
+            margin: 40px auto;
         }
-            .pinned-blog__img {
+            .prifile__img {
                 width: 100%;
                 min-width: 220px;
                 margin: 0;
                 justify-self: center;
             }
-            .pinned-blog__img img{
+            .prifile__img img{
                 width: 100%;
                 height: auto;
             }
-            .pinned-blog__info-container {
+            .profile__text-container {
                 width: 80%;
             }
-                .pinned-blog__title {
+                .profile__title {
                     margin-top: 28px;
                 }
-                .pinned-blog__recap {
+                .profile__recap {
                     font-size: 1.2rem;
                     line-height: 1.4rem;
                     font-weight: 500;
@@ -75,8 +60,7 @@ main {
                     margin-bottom: 28px;
                     padding: 0;
                 }
-                .latest__blog--button a,
-                .pinned-blog__button a{
+                .latest__blog--button a {
                     display: inline-block;
                     line-height: 25px;
                     color: var(--black);
@@ -92,7 +76,7 @@ main {
                 }
                 
     
-    .latest {
+    .projects {
         width: 90%;
         min-width: 320px;
         height: auto;
@@ -102,14 +86,14 @@ main {
         grid-auto-columns: minmax(280px,1200px);
         place-content: center;
     }
-        .latest__principal-title {
+        .projects__principal-title {
             width: 100%;
             line-height: 8rem;
             justify-self: center;
             border-bottom: 1px solid darkgray;
             text-align: center;
         }
-        .latest__container {
+        .projects__container {
             width: 100%;
             min-width: 220px;
             max-width: 1200px;
@@ -119,25 +103,22 @@ main {
             gap: 10px;
             grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
         }
-            .latest__blog {
+            .projects__blog {
                 height: auto;
             }
-                .latest__blog--img-container {
+                .projects__blog--img-container {
                     width: 100%;
                     min-width: 220px;
                     margin: 0 auto;
                 }
-                .latest__blog--img {
+                .projects__blog--img {
                     width: 100%;
                     height: auto;
                 }
-                .latest__blog--title {
+                .projects__blog--title {
                     font-size: 1.4rem;
                 }
-                .latest__blog--recap {
+                .projects__blog--recap {
                     font-size: 1.2rem;
                     font-weight: 500;
-                }
-    .footer--blogs {
-        position: static;
-    }
+                } */

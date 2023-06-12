@@ -1,4 +1,12 @@
-.header--perfil {
+
+
+/* 
+    fondo gris: #e6e9ed
+*/
+/* body {
+    position: static;
+}
+.header--blogs {
     position: static;
 }
 main {
@@ -6,7 +14,7 @@ main {
     min-width: 320px;
     height: auto;
 }
-    .profile__head {
+    .pinned-blog {
         width: 100%;
         min-width: 320px;
         height: auto;
@@ -17,7 +25,14 @@ main {
 
         background-color: #e6e9ed;
     }
-        .profile__head-container { 
+        .pinned-blog__principal-title { 
+            width: 90%;
+            min-width: 220px;
+            max-width: 1200px;
+            font-weight: 700;
+            font-size: 1.4rem;
+        }
+        .pinned-blog__container { 
             width: 90%;
             min-width: 220px;
             max-width: 1200px;
@@ -28,25 +43,25 @@ main {
             grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
             align-items: center;
             justify-items: center;
-            margin: 40px auto;
+            margin-bottom: 40px;
         }
-            .prifile__img {
+            .pinned-blog__img {
                 width: 100%;
                 min-width: 220px;
                 margin: 0;
                 justify-self: center;
             }
-            .prifile__img img{
+            .pinned-blog__img img{
                 width: 100%;
                 height: auto;
             }
-            .profile__text-container {
+            .pinned-blog__info-container {
                 width: 80%;
             }
-                .profile__title {
+                .pinned-blog__title {
                     margin-top: 28px;
                 }
-                .profile__recap {
+                .pinned-blog__recap {
                     font-size: 1.2rem;
                     line-height: 1.4rem;
                     font-weight: 500;
@@ -60,7 +75,8 @@ main {
                     margin-bottom: 28px;
                     padding: 0;
                 }
-                .latest__blog--button a {
+                .latest__blog--button a,
+                .pinned-blog__button a{
                     display: inline-block;
                     line-height: 25px;
                     color: var(--black);
@@ -73,10 +89,10 @@ main {
                 }
                 .blog__button:hover a {
                     color: white;
-                }
+                } */
                 
-    
-    .projects {
+/*     
+    .latest {
         width: 90%;
         min-width: 320px;
         height: auto;
@@ -86,14 +102,14 @@ main {
         grid-auto-columns: minmax(280px,1200px);
         place-content: center;
     }
-        .projects__principal-title {
+        .latest__principal-title {
             width: 100%;
             line-height: 8rem;
             justify-self: center;
             border-bottom: 1px solid darkgray;
             text-align: center;
         }
-        .projects__container {
+        .latest__container {
             width: 100%;
             min-width: 220px;
             max-width: 1200px;
@@ -103,22 +119,25 @@ main {
             gap: 10px;
             grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
         }
-            .projects__blog {
+            .latest__blog {
                 height: auto;
             }
-                .projects__blog--img-container {
+                .latest__blog--img-container {
                     width: 100%;
                     min-width: 220px;
                     margin: 0 auto;
                 }
-                .projects__blog--img {
+                .latest__blog--img {
                     width: 100%;
                     height: auto;
                 }
-                .projects__blog--title {
+                .latest__blog--title {
                     font-size: 1.4rem;
                 }
-                .projects__blog--recap {
+                .latest__blog--recap {
                     font-size: 1.2rem;
                     font-weight: 500;
                 }
+    .footer--blogs {
+        position: static;
+    } */
