@@ -21,6 +21,10 @@ a {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
+
 h1 {
   font-size: 48px;
   font-weight: bolder;
@@ -37,10 +41,27 @@ h1 {
   /* Resize the background image to cover the entire container */
   background-size: cover;
 }
-
-.header__nav {
-  line-clamp: 300px, 90%, 1440px;
+.header .header__nav {
+  min-width: 300px;
+  max-width: 1440px;
+  width: 90%;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.header .header__nav .header__nav--logo {
+  flex: 1 0 0;
+}
+.header .header__nav .header__nav--menu {
+  flex: 1 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.header .header__title {
+  text-align: center;
+  color: #47cfac;
+  margin-block: 50vh;
+  margin-inline: auto;
 }

@@ -19,6 +19,14 @@ $secondary-font: 'Roboto', sans-serif;
     box-sizing: border-box;
 }
 
+@mixin responsive-size($value) {
+    min-width: 300px;
+    max-width: 1440px;
+    width: $value;
+
+    margin: 0 auto;
+}
+
 @mixin flex-container($display, $aling, $justify) {
     display: $display;
     align-items: $aling;
@@ -48,6 +56,9 @@ a {
     color: $just-white;
     text-decoration: none;
 }
+li {
+    list-style: none;
+}
 h1 {
     font-size: size(6);
     font-weight: bolder;
@@ -65,13 +76,27 @@ h1 {
     background-repeat: no-repeat;
 /* Resize the background image to cover the entire container */
     background-size: cover; 
+    .header__nav {
+        @include responsive-size(90%);
+        @include flex-container(flex, center, space-between);
+        
+        .header__nav--logo {
+            flex: 1 0 0;
+        }
+        .header__nav--menu {
+            flex: 1 0 0;
+            @include flex-container(flex, center, space-around);
+        }
+    }
+    .header__title {
+        text-align: center;
+        color: $primary-color;
+        margin-block: 50vh;
+        margin-inline: auto;
+    }
 }
 
-.header__nav {
-    line-clamp: 300px, 90%, 1440px;
-    // padding-inline: 5vw;
-    @include flex-container(flex, center, space-between);
-}
+
 
 // footer>p>a:hover {
 //     border-bottom: 1px solid #000000;
