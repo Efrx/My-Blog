@@ -31,6 +31,8 @@ h1 {
 }
 
 .header {
+  display: grid;
+  grid-template-rows: auto 1fr;
   width: 100vw;
   height: 100vh;
   background-image: url("../assets/img/Cover.png");
@@ -42,16 +44,30 @@ h1 {
   background-size: cover;
 }
 .header .header__nav {
+  position: sticky;
+  top: 0;
+  background-color: transparent; /* Inicialmente transparente */
+  transition: background-color 0.3s ease;
   min-width: 300px;
   max-width: 1440px;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
+  padding-inline: 5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+.header .header__nav a {
+  position: relative;
+  font-size: 16px;
+  font-weight: bolder;
+}
 .header .header__nav .header__nav--logo {
   flex: 1 0 0;
+}
+.header .header__nav .header__nav--logo a:hover {
+  transition: all 1s;
+  color: #47cfac;
 }
 .header .header__nav .header__nav--menu {
   flex: 1 0 0;
@@ -59,9 +75,33 @@ h1 {
   align-items: center;
   justify-content: space-around;
 }
+.header .header__nav .header__nav--menu .menu--item {
+  padding: 1rem;
+}
+.header .header__nav .header__nav--menu .menu--item a {
+  transition: all 0.5s;
+}
+.header .header__nav .header__nav--menu .menu--item a::before {
+  position: absolute;
+  content: " ";
+  background-color: #47cfac;
+  bottom: -10%;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  transition: all 0.5s;
+}
+.header .header__nav .header__nav--menu .menu--item a:hover::before {
+  left: 0;
+  width: 100%;
+}
+.header .header__nav .header__nav--menu .menu--item a:hover {
+  color: #47cfac;
+}
 .header .header__title {
+  align-self: center;
+  font-weight: lighter;
   text-align: center;
   color: #47cfac;
-  margin-block: 50vh;
   margin-inline: auto;
 }

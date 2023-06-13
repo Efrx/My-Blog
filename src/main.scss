@@ -65,7 +65,8 @@ h1 {
 }
 
 .header {
-
+    display: grid;
+    grid-template-rows: auto 1fr;
     width: 100vw;
     height: 100vh;
 
@@ -77,22 +78,74 @@ h1 {
 /* Resize the background image to cover the entire container */
     background-size: cover; 
     .header__nav {
-        @include responsive-size(90%);
+        position: sticky;
+        top: 0;
+        background-color: transparent; /* Inicialmente transparente */
+        transition: background-color 0.3s ease; 
+        
+        @include responsive-size(100%);
+        padding-inline: 5%;
         @include flex-container(flex, center, space-between);
         
+        a {
+            position: relative;
+            font-size: size(2);
+            font-weight: bolder;
+        }
+
         .header__nav--logo {
             flex: 1 0 0;
+            a{
+                &:hover {
+                    transition: all 1s;
+                    color: $primary-color;
+                }
+            }
         }
         .header__nav--menu {
+            // outline: 1px solid red;
             flex: 1 0 0;
             @include flex-container(flex, center, space-around);
+
+            .menu--item {
+                padding: 1rem;
+
+                a {
+                    transition: all 0.5s;
+                    &::before {
+                        position: absolute;
+                        content: " ";
+                        background-color: $primary-color;
+                        bottom: -10%;
+                        left: 50%;
+                        width: 0;
+                        height: 2px;
+                        transition: all 0.5s;
+                    }
+                    &:hover::before {
+                        left: 0;
+                        width: 100%;
+                    }
+                    &:hover {
+                        color: $primary-color;
+                    }
+                }
+
+                
+            }
         }
     }
     .header__title {
+        align-self: center;
+        font-weight: lighter;
         text-align: center;
         color: $primary-color;
-        margin-block: 50vh;
         margin-inline: auto;
+    }
+}
+.main {
+    h2{
+        // margin-block: 100vh;
     }
 }
 
