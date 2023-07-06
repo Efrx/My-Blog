@@ -9,84 +9,109 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="js/main.js">
     <link rel="stylesheet" href="/font/flaticon.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
 
 </head>
 <body>
     <header class="header" id="header">
+        
         <nav class="header__nav">
-            <!-- logo button -->
-            <section class="header__nav--logo">
-                <a href="#">Home</a>
-            </section>
+            <a href="#" class="header__nav--logo home--button">Home</a>
 
             <ul class="header__nav--menu">
                 <li class="menu--item">
-                    <a href="#">About</a>
+                    <a href="">Blog</a>
                 </li>
                 <li class="menu--item">
-                    <a href="#">Skills</a>
+                    <a href="">Contact</a>
                 </li>
                 <li class="menu--item">
-                    <a href="#">Portfolio</a>
-                </li>
-                <li class="menu--item">
-                    <a href="#">Blog</a>
+                    <a href="">Portfolio</a>
                 </li>
             </ul>
+
+            <!-- <div class="menu-container">
+                <ul class="menu">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Acerca de</a></li>
+                    <li><a href="#">Servicios</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div> -->
+            <nav id="mobile-menu" class="nav--menu-mobile">
+                <ul class="menu--options">
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Resume</a></li>
+                </ul>
+                <ul class="contact--list">
+                    <li>
+                        <a href="#">
+                            GH
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            LN
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            TW
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!--  -->
+
+            <nav class="header__nav-responsive">
+                <button class="nav-button button">
+                </button>
+            </nav>
+
         </nav>
 
-        <h1 class="header__title" >Welcome to my <br> Blog</h1>
+        <div class="header__cover">
+            <div class="header__cover--text">
+                <h1>Hello, i'm Erfain</h1>
+                <p>
+                    Passionate about web development, 
+                    UX/UI design, graphic design, and 
+                    everything related to science and 
+                    technology.
+                </p>
+
+                <!-- <button class="cover__button button" >about me</button> -->
+                <div class="cover__link--contact">
+                    <a href="#contact">see more </a>
+                    <span class="material-icons">arrow_right_alt</span>
+                </div>
+            </div>
+
+            <picture class="header__cover--imgContainer">
+                <source media="(min-width: 768px)" srcset="assets/img/Cover.png">
+                <img src="assets/img/profile-pic.jpg" alt="">
+                <a>Lorem ipsum dolor sit.</a>
+            </picture>
+
+            
+        </div>
     </header>
 
     <main class="main">
-        <h2>hola</h2>
+
     </main>
 
     <footer class="footer">
-
+        <ul>
+            <li><a href=""></a>IG</li>
+            <li><a href=""></a>YT</li>
+            <li><a href=""></a>LK</li>
+            <li><a href=""></a>GH</li>
+        </ul>
     </footer>
-    <!-- <main class="home__cover main">
-        <header class="main__header">
-            <nav class="main__header--nav">
-                <section class="main__header__nav--logo-container">
-                    <a href="index.html"> 
-                        <img src="./assets/img/Logo-negro.png" alt="Logo de mi Blog">
-                    </a>
-                </section>
-    
-                <section class="main__header__nav--link-home">
-                    <a href="perfil.html">About me</a>
-                </section>
-            </nav>
-        </header>
-    
-        <div class="main__content">
-            <h1 class="main__content--title">Welcome to my hotspot</h1>
 
-
-
-            <button class="main__content--button">
-                <a href="blogs.html">what's new</a>
-            </button>
-        </div>
-
-        <footer class="footer--home">
-            <p>Designed with ❤ by <a href="#">@efrain</a> </p>
-            <ul class="icons__container">
-                <li class="icons__link--container">
-                    <a href="/"><span class="flaticon-010-linkedin"> </span></a>
-                </li>
-                <li class="icons__link--container">
-                    <a href="/"><span class="flaticon-011-instagram"> </span></a>
-                </li>
-                <li class="icons__link--container">
-                    <a href="/"><span class="flaticon-002-twitter"> </span></a>
-                </li>
-                <li class="icons__link--container">
-                    <a href="/"><span class="flaticon-001-facebook"> </span></a>
-                </li>
-            </ul>
-        </footer>
-    </main> -->
+    <script src="js/main.js" ></script>
 </body>
 </html>
