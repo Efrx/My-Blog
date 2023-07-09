@@ -1,0 +1,175 @@
+@import 'utils';
+
+.header {
+    padding-block-end: $margin-block-unit*3;
+    // background-color: $primary-color;
+    &>[class*="header__"] {
+        @include responsive-size(280px, 80%, 1440px);
+    }
+
+    .header__nav {
+        position: relative;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center ;
+
+        font-size: size(2);
+        height: 10rem;
+
+        .header__nav--logo {
+            color: $mex-pink;
+            @include hover-nav-options($mex-pink);
+        }
+        .header__nav--menu {
+            flex-basis: 50%;
+            justify-content: end;
+            text-align: end;
+            &>li {
+                flex: 1 0 0;
+                a {
+                    @include hover-nav-options($mex-pink);
+                }
+            }
+        }
+
+        .nav--menu-mobile.open{
+            display: flex;
+        }
+        .nav--menu-mobile {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+    
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            padding: $margin-block-unit*5;
+            background-color: $light-gray;
+            li {
+                a {
+                    color: $mex-pink;
+                }
+            }
+            &>ul {
+                display: flex;
+                flex: 1 0 0;
+                width: 100%;
+            }
+            .menu--options {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: $margin-block-unit*3;
+                li {
+                    width: 50%;
+                    a {
+                        @include hover-nav-options($mex-pink);
+                    }
+                }
+            }
+            .contact--list {
+                justify-content: space-around;
+                align-items: center;
+                &::before {
+                    content: "Say Hello";
+                    position: absolute;
+                    top: 55%;
+                    color: $mex-pink;
+                    opacity: 0.5;
+                    font-size: size(3);
+                    font-weight: 700;
+                }
+            }
+        }
+
+        .nav-button {
+            @include nav-button-reset(30px, 30px);
+            &::before {
+                @include reset-pseudo(100%, 2px, $mex-pink);
+                transition: all 0.3s;
+            }
+            &::after {
+                @include reset-pseudo(80%, 2px, $mex-pink);
+                transition: all 0.3s;
+                transform: translateX(10%);
+            }
+        }
+        .nav-button-active {
+            @include nav-button-reset(30px, 30px);
+            &::before {
+                // @include reset-pseudo(100%, 2px, $mex-pink);
+                transform: translateY(400%) rotate(45deg);
+            }
+            &::after {
+                width: 100%;
+                // @include reset-pseudo(100%, 2px, $mex-pink);
+                transform: translateY(-400%) rotate(-45deg);
+            }
+        }
+    }
+
+    .header__cover {
+        flex-grow: 1;
+        // // ----------
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        &>[class*="header__cover--"] {
+            // En pantallas más grandes, cada subsección ocupa el 50% del ancho
+            @media (min-width: 768px) {
+                width: 50%; 
+            }
+        }
+        .header__cover--text {
+            &>p {
+                @media (min-width: 768px) {
+                    width: 80%;
+                }
+            }
+            .cover__link--contact {
+                width: fit-content;
+                margin-block: $margin-block-unit;
+                display: flex;
+                gap: 2px;
+                align-items: center;
+                &>a {
+                    font-size: size(1.5);
+                    color: $mex-pink;
+                }
+                &>span {
+                    font-size: size(2);
+                    color: $mex-pink;
+                    cursor: pointer;
+                }
+                @include hover-links-more($mex-pink);
+            }
+        }
+        .header__cover--imgContainer {
+            margin-block: $margin-block-unit*2;
+            img {
+                aspect-ratio: 1/1;
+                object-view-box: inset(15%);
+                object-fit: cover;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .header__nav--menu {
+        display: none;
+    }
+
+}
+@media (min-width: 767px) {
+    .header__nav-responsive {
+        display: none;
+    }
+    .header__nav--menu {
+        display: flex;
+    }
+}

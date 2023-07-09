@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+$primary-color: #5b63b7;
+$black: #000000;
+$light-gray: #d6d6d6;
+$mex-pink: #ed5e93;
+$light-purple: #9296f0;
+
+// $box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.6);
+$limit: 10;
+$unit: 8px;
+$primary-font: 'Poppins', sans-serif;
+$margin-block-unit: 1rem;
+
+@mixin hover-nav-options($color) {
+    position: relative;
+    &::before {
+        position: absolute;
+        content: " ";
+        background-color: $color;
+        bottom: -10%;
+        left: 50%;
+        width: 0;
+        height: 5px;
+        transition: all 0.3s;
+    }
+    &:hover::before {
+        left: -0%;
+        width: 100%;
+    }
+    &:hover {
+        color: $color;
+    }
+}
+
+@mixin hover-links-more($color) {
+    &:hover {
+        transition: all 0.9s;
+        transform: translateX(10%);
+    }
+}
+
+@mixin hover-links($color) {
+    &:hover {
+        color: $color;
+    }
+}
+
+@mixin hover-button() { //pendiente
+    &:hover > a{
+        transition: all 0.3s;
+        top: 0;
+        left: 0;
+    }
+    &:hover {
+        border: 2px solid $black;
+    }
+}
+
+
+
+@mixin reset-pm {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@mixin reset-pseudo($width,$height, $color) {
+    content: "";
+    display: inline-block;
+    width: $width;
+    height: $height;
+    background-color: $color;
+    clear: both;
+}
+
+@mixin nav-button-reset($width, $height) {
+    height: $height;
+    width: $width;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+@mixin reset-button($background-c, $padding) {
+    background: $background-c;
+    outline: none;
+    border: none;
+    padding-inline: $padding;
+    padding-block: $padding/2;
+}
+
+@mixin responsive-size($min,$value,$max) {
+    min-width: $min;
+    max-width: $max;
+    width: $value;
+
+    margin: 0 auto;
+}
+
+@mixin flex-container($direction, $aling, $justify) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $aling;
+    justify-content: $justify;
+}
+
+@function size($value) {
+    @return $value * $unit ;
+}
+
