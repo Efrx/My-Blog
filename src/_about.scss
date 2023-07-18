@@ -1,0 +1,44 @@
+@import 'utils';
+
+.main__about {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-block-start: $margin-block-unit*4;
+
+    .about--title {
+
+    }
+    &>p {
+        margin-block-start: $margin-block-unit;
+        color: $purple;
+        font-size: size(1.5);
+    }
+
+    .about--imgContainer {
+        display: flex;
+        justify-content: center;
+        margin-block: $margin-block-unit*2;
+
+        background-image: url('../assets/svg/about-img-bg_about.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        
+        img {
+            width: 30%;
+            object-fit: contain;
+        }
+    }
+
+    .about--info {
+        // p {
+            
+        // }
+        .skills--list {
+
+        }
+    }
+
+    
+}

@@ -8,7 +8,7 @@
     
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="js/main.js">
-    <link rel="stylesheet" href="/font/flaticon.css">
+    <!-- <link rel="stylesheet" href="/font/flaticon.css"> -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
     rel="stylesheet">
 
@@ -17,14 +17,16 @@
     <header class="header" id="header">
         
         <nav class="header__nav">
-            <a href="#" class="header__nav--logo home--button">Home</a>
 
             <ul class="header__nav--menu">
                 <li class="menu--item">
-                    <a href="">About</a>
+                    <a class="cta-nav" href="">Home</a>
                 </li>
                 <li class="menu--item">
-                    <a href="">Portfolio</a>
+                    <a href="#About">About</a>
+                </li>
+                <li class="menu--item">
+                    <a href="#Portfolio">Portfolio</a>
                 </li>
                 <li class="menu--item">
                     <a href="">Contact</a>
@@ -57,167 +59,109 @@
             </nav>
             <!--  -->
             <nav class="header__nav-responsive">
+
+                <div class="mobile-home">
+                    <a class="cta-nav" href="">Home</a>
+                </div>
+
                 <button class="nav-button button">
+                    <span></span>
                 </button>
             </nav>
         </nav>
-        <div class="header__cover">
-            <div class="header__cover--text">
-                <h1>Hello, i'm <br> Efrain</h1>
-                <p>
-                    Passionate about web development, 
-                    UX/UI design, graphic design, and 
-                    everything related to science, technology and education.
-                    <br>
-                    !Welcome to my website¡
-                </p>
 
-                <!-- <button class="cover__button button" >about me</button> -->
-                <div class="cover__link--contact">
-                    <a href="about.html">see more </a>
-                    <span class="material-icons">arrow_right_alt</span>
-                </div>
-            </div>
-
-            <picture class="header__cover--imgContainer">
-                <source media="(min-width: 768px)" srcset="assets/img/Cover.png">
-                <img src="assets/img/profile-pic.jpg" alt="">
-            </picture>
-
-            
-        </div>
     </header>
 
     <main class="main">
-        <h2 class="main__projects-tittel">My work</h2>
-        <div class="main__projects-wraper">
-            <div class="main__projects--aside">
-                <h3>Core <br> tecnologies</h3>
-                <ul>
-                    <li>React</li>
-                    <li>Javascript</li>
-                    <li>Sass</li>
-                    <li>Boostrap</li>
-                    <li>CSS</li>
+<!-- ------------------------------------------------------ -->
+        <section id="Hero" class="main__hero">
+            <div class="hero--text">
+                <h1> 
+                    <span>Efrain Ayala 👋</span> <br>
+                    Happy to create beautiful things for the web and always keep learning.
+                </h1>
+                <p>
+                    <!-- !Welcome to my website¡ -->
+                    potential web developer, currently in the process of becoming one, with a particular taste for design (occasionally graphic design) 
+                </p>
+
+                <div class="button">
+                    <a href="#Footer"><span>Contct me!</span></a>
+                </div>
+
+            </div>
+
+            <picture class="hero--imgContainer imgContainer">
+                <img src="assets/img/Recurso 1_profile.png" alt="">
+            </picture>
+        </section>
+<!-- ------------------------------------------------------ -->
+        <section id="About" class="main__about">
+            <h2 class="about--title">About me.</h2>
+            <p>Keep reading...</p>
+
+            <div class="about--imgContainer imgContainer">
+                <img src="assets/img/profile-photo_about.png" alt="">
+            </div>
+
+            <div class="about--info">
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad molestiae quasi dolorum veritatis nesciunt omnis tempora debitis possimus officia ratione?</p>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex eius iste voluptatibus nemo!
+                </p>
+
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe aliquam deleniti fuga officiis repellat ipsam voluptates molestiae ut sit, rem, aut dolorem unde non! Harum!</p>
+
+                <ul class="skills--list">
+                    <li>JavaScript</li>
                     <li>HTML</li>
-                </ul>
-                <h3>Others</h3>
-                <ul>
-                    <li>Figma</li>
-                    <li>Photoshop</li>
-                    <li>Illustrator</li>
+                    <li>CSS</li>
+                    <li>SASS</li>
+                    <li>React JS</li>
                 </ul>
             </div>
-
-            <div class="main__projects">
-
-                <div class="project-card card">
-                    <div class="img-container">
-                        <img class="project-img" src="assets/img/main-news-img.png" alt="">
-                    </div>
-
-                    <div class="info-container">
-                        <h2 class="project-title">Lorem, ipsum dolor.</h2>
-                        <p class="project-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-
-                        <div class="project-button button" href="#">
-                            <a href="#"><span>Review</span></a>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="project-card card">
-                    <div class="img-container">
-                        <img class="project-img" src="assets/img/main-news-img.png" alt="">
-                    </div>
-
-                    <div class="info-container">
-                        <h2 class="project-title">Lorem, ipsum dolor.</h2>
-                        <p class="project-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-
-                        <div class="project-button button" href="#">
-                            <a href="#"><span>Review</span></a>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <div class="project-card card">
-                    <div class="img-container">
-                        <img class="project-img" src="assets/img/main-news-img.png" alt="">
-                    </div>
-
-                    <div class="info-container">
-                        <h2 class="project-title">Lorem, ipsum dolor.</h2>
-                        <p class="project-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-
-                        <div class="project-button button" href="#">
-                            <a href="#"><span>Review</span></a>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <div class="project-card card">
-                    <div class="img-container">
-                        <img class="project-img" src="assets/img/main-news-img.png" alt="">
-                    </div>
-
-                    <div class="info-container">
-                        <h2 class="project-title">Lorem, ipsum dolor.</h2>
-                        <p class="project-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-
-                        <div class="project-button button" href="#">
-                            <a href="#"><span>Review</span></a>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <div class="project-card card">
-                    <div class="img-container">
-                        <img class="project-img" src="assets/img/main-news-img.png" alt="">
-                    </div>
-
-                    <div class="info-container">
-                        <h2 class="project-title">Lorem, ipsum dolor.</h2>
-                        <p class="project-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-
-                        <div class="project-button button" href="#">
-                            <a href="#"><span>Review</span></a>
-                        </div>
-                        
-                    </div>
-                </div>
-
-                <div class="project-card card">
-                    <div class="img-container">
-                        <img class="project-img" src="assets/img/main-news-img.png" alt="">
-                    </div>
-
-                    <div class="info-container">
-                        <h2 class="project-title">Lorem, ipsum dolor.</h2>
-                        <p class="project-description">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-
-                        <div class="project-button button" href="#">
-                            <a href="#"><span>Review</span></a>
-                        </div>
-                        
-                    </div>
-                </div>
+        </section>
+<!-- ------------------------------------------------------ -->
+        <section id="Portfolio" class="main__projects">
+            <div class="projects--tittel">
+                <h2>My work</h2>
+                <span>Check out what I have been doing</span>
             </div>
-        </div>
+        <div id="projectsContainer" class="projects-wraper">
+                <!-- <div class="main__projects" id="main__projects">
+    
+                </div> -->
+            </div>
+        </section>
+<!-- ------------------------------------------------------ -->
     </main>
 
-    <!-- <footer class="footer">
+    <footer id="Footer" class="footer">
         <ul>
             <li><a href=""></a>IG</li>
             <li><a href=""></a>YT</li>
             <li><a href=""></a>LK</li>
             <li><a href=""></a>GH</li>
         </ul>
-    </footer> -->
+    </footer>
+
+    <template id="template-card">
+        <div class="project-card card">
+            <div class="img-container">
+                <img class="project-img" src="" alt="">
+            </div>
+
+            <div class="info-container">
+                <h2 class="project-title"></h2>
+                <p class="project-description"></p>
+
+                <div class="project-button button" href="">
+                    <a href="#"><span>Review</span></a>
+                </div>
+            </div>
+        </div>
+    </template>
 
     <script src="js/main.js" ></script>
 </body>

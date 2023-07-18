@@ -1,8 +1,9 @@
-// @import 'button';
 @import 'projects';
 @import 'header';
 @import 'utils';
+@import 'about';
 @import 'footer';
+@import 'hero';
 
 * {
     @include reset-pm();
@@ -10,31 +11,26 @@
 }
 
 html {
-    // overflow-x: hidden;
     font-size: 62.5%;
     // border: 1px solid black;
 }
 
 body {
-    // border: 1px solid black;
     width: 100%;
     position: relative;
     font-family: $primary-font;
-    color: $light-gray;
+    color: $black;
     background-color: $primary-color;
-    // &>* {
-    //     outline: 0.5px dashed $mex-pink;
-    //     margin: 5px;
-    // }
 }
 
 a {
-    color: $light-gray;
     text-decoration: none;
-    font-size: size(2);
+    // font-size: size(2);
+    @include font-size($a-font-size-small, $a-font-size-medium, $a-font-size-large);
 }
 p {
-    font-size: size(2);
+    // font-size: size(2);
+    @include font-size($p-font-size-small, $p-font-size-medium, $p-font-size-large);
 }
 img {
     width: 100%;
@@ -43,12 +39,36 @@ li {
     list-style: none;
 }
 h1 {
-    font-size: size(6);
+    // font-size: size(6);
+    @include font-size($h1-font-size-small, $h1-font-size-medium, $h1-font-size-large);
     letter-spacing: 0.05rem;
     font-weight: 700;
-    line-height: size(5) * 1.2;
-    margin-block-end: $margin-block-unit;
-    margin-block-start: $margin-block-unit*3;
+
+    line-height: $h1-font-size-small*1.2;
+    @media screen and (min-width: $breakpoint-medium) {
+        line-height: $h1-font-size-medium*1.2;
+    }
+    @media screen and (min-width: $breakpoint-large) {
+        line-height: $h1-font-size-large*1.2;
+    }
+}
+h2 {
+    @include font-size($h2-font-size-small, $h2-font-size-medium, $h2-font-size-large);
+}
+  
+h3 {
+    @include font-size($h3-font-size-small, $h3-font-size-medium, $h3-font-size-large);
+}
+
+.main { 
+    // margin-block: $margin-block-unit*10;
+    &>section {
+        @include responsive-size(280px, 80%, 1440px);
+        padding-block-start: $nav-height;
+        // &::before {
+        //     @include reset-pseudo(100%, $nav-height,transparent);
+        // }
+    }
 }
 
 // /* FOOTER REUTIZAR */

@@ -1,10 +1,9 @@
-@import 'utils';
-
 .footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ed5e93;
+    * {
+        outline: 1px dashed aqua;
+    }
+    background-color: $purple;
+    padding-block-end: $margin-block-unit*3;
     &>[class*="footer__"] {
         @include responsive-size(280px, 80%, 1440px);
     }

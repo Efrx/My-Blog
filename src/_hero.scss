@@ -1,0 +1,46 @@
+@import 'utils';
+
+.main__hero {
+    // position: relative;
+    // // ----------
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    // display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    // grid-auto-flow: dense;
+    min-height: 100vh;
+    .hero--text {
+        @media screen and (min-width: 768px) {
+            flex: 1.5 0 0 ;
+            padding-inline-end: $margin-block-unit*5;
+        }
+        @media screen and (min-width: 1024px) {
+            padding-inline-end: $margin-block-unit*10;
+        }
+        h1 {
+            span {
+                color: $purple,
+            }
+        }
+        p {
+            margin-block-start: $margin-block-unit;
+            color: $purple;
+            font-size: size(2);
+            max-width: 550px;
+        }
+        // ---------------
+        &>.button {
+            margin-block-start: $margin-block-unit*3;
+            width: 40%; 
+            max-width: 250px;
+        }
+    }
+    .hero--imgContainer {
+        @media screen and (min-width: 768px) {
+            flex: 1 0 0 ;
+        }
+        margin-block: $margin-block-unit*2;
+    }
+}

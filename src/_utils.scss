@@ -1,10 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 
-$primary-color: #5b63b7;
+// $primary-color: #5b63b7;
+$purple: #5b63b7;
+$primary-color: #d6d6d6;
 $black: #000000;
 $light-gray: #d6d6d6;
 $mex-pink: #ed5e93;
 $light-purple: #9296f0;
+
+$nav-height: 10rem;
+
+$nav-transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+$shadow: 0px 0px 31px 15px rgba(0,0,0,0.1);
 
 // $box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.6);
 $limit: 10;
@@ -12,24 +19,74 @@ $unit: 8px;
 $primary-font: 'Poppins', sans-serif;
 $margin-block-unit: 1rem;
 
+// Definir breakpoints
+$breakpoint-small: 480px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 1024px;
+
+// Tamaños de fuente base
+$base-font-size: 16px;
+
+// Tamaños de fuente para h1
+$h1-font-size-small: $base-font-size * 1.5;
+$h1-font-size-medium: $base-font-size * 1.75;
+$h1-font-size-large: $base-font-size * 2;
+
+// Tamaños de fuente para h2
+$h2-font-size-small: $base-font-size * 1.5;
+$h2-font-size-medium: $base-font-size * 1.75;
+$h2-font-size-large: $base-font-size * 2;
+
+// Tamaños de fuente para h3
+$h3-font-size-small: $base-font-size * 1.25;
+$h3-font-size-medium: $base-font-size * 1.5;
+$h3-font-size-large: $base-font-size * 1.75;
+
+// Tamaños de fuente para enlaces <a>
+$a-font-size-small: $base-font-size;
+$a-font-size-medium: $base-font-size;
+$a-font-size-large: $base-font-size ;
+
+// Tamaños de fuente para párrafos <p>
+$p-font-size-small: $base-font-size * 1.25;
+$p-font-size-medium: $base-font-size * 1.5;
+$p-font-size-large: $base-font-size * 1.75;
+
+// Mixin para aplicar tamaño de fuente según el breakpoint
+@mixin font-size($font-size-small, $font-size-medium, $font-size-large) {
+    font-size: $font-size-small;
+
+    @media screen and (min-width: $breakpoint-medium) {
+        font-size: $font-size-medium;
+    }
+    
+    @media screen and (min-width: $breakpoint-large) {
+        font-size: $font-size-large;
+    }
+}
+
+@mixin cta-nav-options {
+    position: relative;
+    &::before {
+        position: absolute;
+        @include reset-pseudo(100%, 12px, $purple);
+        bottom: -5%;
+        z-index: -1;
+    }
+}
+
 @mixin hover-nav-options($color) {
     position: relative;
     &::before {
         position: absolute;
-        content: " ";
-        background-color: $color;
+        @include reset-pseudo(100%, 0px, $purple);
         bottom: -10%;
-        left: 50%;
-        width: 0;
-        height: 5px;
         transition: all 0.3s;
+        z-index: -1;
     }
     &:hover::before {
-        left: -0%;
-        width: 100%;
-    }
-    &:hover {
-        color: $color;
+        height: 12px;
+        bottom: -5%;
     }
 }
 
@@ -48,12 +105,7 @@ $margin-block-unit: 1rem;
 
 @mixin hover-button() { //pendiente
     &:hover > a{
-        transition: all 0.3s;
-        top: 0;
-        left: 0;
-    }
-    &:hover {
-        border: 2px solid $black;
+        transform: translate(-5px, -5px);
     }
 }
 
@@ -109,3 +161,35 @@ $margin-block-unit: 1rem;
     @return $value * $unit ;
 }
 
+// --------------------------------
+
+.button {
+    position: relative;
+    background-color: $black;
+    min-height: 40px;
+    a {
+        transition: all 0.3s;
+        position: absolute;
+
+        top: 0;
+        right: 0;
+
+        width: 100%;
+        height: 100%;
+        text-align: center;
+
+        background-color: $purple;
+        display: grid;
+        place-content: center;
+        color: $black;
+        font-weight: 700;
+    }
+    @include hover-button();
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -1,42 +1,49 @@
 @import 'utils';
 
+
 .header {
-    padding-block-end: $margin-block-unit*3;
+    position: fixed;
+    top: 0;
+    z-index: 11;
+    width: 100%;
     // background-color: $primary-color;
+    min-height: $nav-height;
+    display: flex;
+    align-items: center;
     &>[class*="header__"] {
         @include responsive-size(280px, 80%, 1440px);
     }
-
     .header__nav {
         position: relative;
-
-        display: flex;
-        justify-content: space-between;
-        align-items: center ;
-
         font-size: size(2);
-        height: 10rem;
-
-        .header__nav--logo {
-            color: $mex-pink;
-            @include hover-nav-options($mex-pink);
-        }
         .header__nav--menu {
-            flex-basis: 50%;
-            justify-content: end;
-            text-align: end;
+            width: 50%;
+            margin: 0 auto;
+            // height: $margin-block-unit*10;
+            // display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 10%;
             &>li {
-                flex: 1 0 0;
-                a {
-                    @include hover-nav-options($mex-pink);
+                a:not(.cta-nav) {
+                    color: $black;
+                    font-weight: 700;
+                    @include hover-nav-options($purple);
+                }
+                .cta-nav {
+                    color: $black;
+                    font-weight: 700;
+                    @include cta-nav-options();
                 }
             }
-        }
-
-        .nav--menu-mobile.open{
-            display: flex;
-        }
-        .nav--menu-mobile {
+}
+    }
+    // --------------------
+    .nav--menu-mobile.open{
+        display: flex;
+    }
+    .nav--menu-mobile {
             display: none;
             flex-direction: column;
             align-items: center;
@@ -47,10 +54,10 @@
             width: 100vw;
             height: 100vh;
             padding: $margin-block-unit*5;
-            background-color: $light-gray;
+            // background-color: $; 
             li {
                 a {
-                    color: $mex-pink;
+                    color: $black;
                 }
             }
             &>ul {
@@ -66,7 +73,7 @@
                 li {
                     width: 50%;
                     a {
-                        @include hover-nav-options($mex-pink);
+                        @include hover-nav-options($purple);
                     }
                 }
             }
@@ -77,99 +84,71 @@
                     content: "Say Hello";
                     position: absolute;
                     top: 55%;
-                    color: $mex-pink;
+                    color: $purple;
                     opacity: 0.5;
                     font-size: size(3);
                     font-weight: 700;
                 }
+                li {
+                    width: 50%;
+                    a {
+                        @include hover-nav-options($purple);
+                    }
+                }
             }
+    }
+    // -------------------
+    .header__nav-responsive {
+        // display: flex;
+        align-items: center;
+        justify-content: space-between;
+        // height: $margin-block-unit*6;
+        .cta-nav {
+            color: $black;
+            font-weight: 700;
+            @include cta-nav-options();
         }
-
-        .nav-button {
+        .nav-button { 
             @include nav-button-reset(30px, 30px);
+            
             &::before {
-                @include reset-pseudo(100%, 2px, $mex-pink);
-                transition: all 0.3s;
+                @include reset-pseudo(100%, 2px, $purple);
+                transition: all 0.4s;
             }
             &::after {
-                @include reset-pseudo(80%, 2px, $mex-pink);
+                @include reset-pseudo(80%, 2px, $purple);
                 transition: all 0.3s;
                 transform: translateX(10%);
             }
         }
-        .nav-button-active {
+        .nav-button-active { 
             @include nav-button-reset(30px, 30px);
             &::before {
-                // @include reset-pseudo(100%, 2px, $mex-pink);
-                transform: translateY(400%) rotate(45deg);
+                transform: translateY(220%) rotate(45deg);
             }
             &::after {
                 width: 100%;
-                // @include reset-pseudo(100%, 2px, $mex-pink);
-                transform: translateY(-400%) rotate(-45deg);
+                transform: translateY(-540%) rotate(-45deg);
             }
         }
     }
-
-    .header__cover {
-        flex-grow: 1;
-        // // ----------
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-
-        &>[class*="header__cover--"] {
-            // En pantallas más grandes, cada subsección ocupa el 50% del ancho
-            @media (min-width: 768px) {
-                width: 50%; 
-            }
-        }
-        .header__cover--text {
-            &>p {
-                @media (min-width: 768px) {
-                    width: 80%;
-                }
-            }
-            .cover__link--contact {
-                width: fit-content;
-                margin-block: $margin-block-unit;
-                display: flex;
-                gap: 2px;
-                align-items: center;
-                &>a {
-                    font-size: size(1.5);
-                    color: $mex-pink;
-                }
-                &>span {
-                    font-size: size(2);
-                    color: $mex-pink;
-                    cursor: pointer;
-                }
-                @include hover-links-more($mex-pink);
-            }
-        }
-        .header__cover--imgContainer {
-            margin-block: $margin-block-unit*2;
-            img {
-                aspect-ratio: 1/1;
-                object-view-box: inset(15%);
-                object-fit: cover;
-            }
-        }
-    }
+    // ---------------------
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 767px) { //ancho maximo
     .header__nav--menu {
         display: none;
+    }    
+    .header__nav-responsive {
+        display: flex;
     }
-
 }
-@media (min-width: 767px) {
+
+@media screen and (min-width: 768px) { // ancho minimo
+    .header__nav--menu {
+        display: flex;
+    }
     .header__nav-responsive {
         display: none;
-    }
-    .header__nav--menu {
-        display: flex;
     }
 }
