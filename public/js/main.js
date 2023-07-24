@@ -1,5 +1,5 @@
 const navButton = document.querySelector('.nav-button')
-const menuContainer = document.querySelector('nav--menu-mobile')
+const mobileMenu = document.querySelector('.nav--menu-mobile')
 const projectList = document.getElementById('projectsContainer')
 const headerNav = document.querySelector('.header')
 // const trailElement = document.querySelector(".trail")
@@ -55,6 +55,8 @@ navButton.addEventListener('click', (e) => {
     e.preventDefault()
     let prefix =  e.target.classList[0]
     activeStattus(prefix,e.target)
+    activeStattus(mobileMenu.classList[0],mobileMenu)
+    // showMobileMenu()
 })
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -65,14 +67,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const scrollTop = getScrollTop()
         // console.log("actual: ",scrollTop," prev: ",previous)
         if (scrollTop > previous) {
-            headerNav.style.top = '-100%';
+            // scroll down | header disapear
+            headerNav.style.transform = 'translateY(-100%)';
         }
         if (scrollTop < previous) {   
-            
-            headerNav.style.top = '0';
+            // scroll up | header apear
+            headerNav.style.transform = 'translateY(0%)';
             headerNav.style.boxShadow = '#020c1b 0px 0px 15px -10px';
         }
-        if (scrollTop === 0) {
+        if (scrollTop === 0) { 
+            // scroll back to initials | header apear
             headerNav.style.boxShadow = 'none';
         }
         previous = scrollTop;
@@ -80,13 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })
 
-// function navBehavior( scrollDirection ) {
-//     let current = scrollDirection
-//     if (current > 0) {
-//         // hacia abajo, desaparecer
-//         headerNav.style.backgroundColor = 'blue';
-//     } 
-// }
+function showMobileMenu() {
+
+}
 
 // this fn return the dom's current position in px 
 function getScrollTop() {
