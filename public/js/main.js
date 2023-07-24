@@ -1,8 +1,8 @@
-// document.addEventListener('DOMContentLoaded', () => {})
-// menu nav button
-const navButton = document.querySelector('.nav-button');
-const menuContainer = document.querySelector('nav--menu-mobile');
+const navButton = document.querySelector('.nav-button')
+const menuContainer = document.querySelector('nav--menu-mobile')
 const projectList = document.getElementById('projectsContainer')
+const headerNav = document.querySelector('.header')
+// const trailElement = document.querySelector(".trail")
 const templateCard = document.getElementById('template-card').content
 const fragment = document.createDocumentFragment()
 const projects = [
@@ -50,14 +50,7 @@ const projects = [
         technologies: ["Tecnología 1", "Tecnología 4", "Tecnología 5"]
     }
 ]
-// aqui se le activa una clase 'active' al elemento target...
-function activeStattus(prefix, target) {
-    // si no solo activa o desactiva...
-    let active = '-active'
-    prefix = prefix + active
-    target.classList.toggle(prefix)
-}
-
+let previous = getScrollTop()
 navButton.addEventListener('click', (e) => {
     e.preventDefault()
     let prefix =  e.target.classList[0]
@@ -66,7 +59,47 @@ navButton.addEventListener('click', (e) => {
 
 document.addEventListener('DOMContentLoaded', () => {
     printProjects();
+    
+    // this detects howmany px the scroll has been moved
+    window.addEventListener('scroll', () => {
+        const scrollTop = getScrollTop()
+        // console.log("actual: ",scrollTop," prev: ",previous)
+        if (scrollTop > previous) {
+            headerNav.style.top = '-100%';
+        }
+        if (scrollTop < previous) {   
+            
+            headerNav.style.top = '0';
+            headerNav.style.boxShadow = '#020c1b 0px 0px 15px -10px';
+        }
+        if (scrollTop === 0) {
+            headerNav.style.boxShadow = 'none';
+        }
+        previous = scrollTop;
+    });
+
 })
+
+// function navBehavior( scrollDirection ) {
+//     let current = scrollDirection
+//     if (current > 0) {
+//         // hacia abajo, desaparecer
+//         headerNav.style.backgroundColor = 'blue';
+//     } 
+// }
+
+// this fn return the dom's current position in px 
+function getScrollTop() {
+    return document.documentElement.scrollTop;
+}
+
+// aqui se le activa una clase 'active' al elemento target...
+const activeStattus = (prefix, target) => {
+    // si no solo activa o desactiva...
+    let active = '-active'
+    prefix = prefix + active
+    target.classList.toggle(prefix)
+}
 
 const printProjects = () => {
     projects.forEach(project => {
@@ -78,10 +111,8 @@ const printProjects = () => {
 
         fragment.appendChild(clone)
     });
-    // console.log(fragment)
     projectList.appendChild(fragment)
 }
-
 
 // printProjects()
 

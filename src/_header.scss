@@ -2,11 +2,14 @@
 
 
 .header {
+    // outline: 1px dashed $mex-pink;
+    transition: all 0.3s;
     position: fixed;
     top: 0;
     z-index: 11;
     width: 100%;
-    // background-color: $primary-color;
+    background-color: $primary-color;
+    // box-shadow: #020c1b 0px 0px 15px -15px;
     min-height: $nav-height;
     display: flex;
     align-items: center;
@@ -19,8 +22,6 @@
         .header__nav--menu {
             width: 50%;
             margin: 0 auto;
-            // height: $margin-block-unit*10;
-            // display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;

@@ -61,13 +61,10 @@ h3 {
 }
 
 .main { 
-    // margin-block: $margin-block-unit*10;
+    // background-image: linear-gradient(to top, #5b63b7, #7e7ebf, #9e9ac7, #bab7cf, #d6d6d6);
     &>section {
         @include responsive-size(280px, 80%, 1440px);
         padding-block-start: $nav-height;
-        // &::before {
-        //     @include reset-pseudo(100%, $nav-height,transparent);
-        // }
     }
 }
 

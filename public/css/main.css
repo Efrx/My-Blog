@@ -36,8 +36,7 @@
 
 .main__projects .projects--tittel {
   text-align: center;
-  -webkit-margin-after: 3rem;
-          margin-block-end: 3rem;
+  margin-block-end: 3rem;
 }
 .main__projects .projects--tittel > span {
   color: #5b63b7;
@@ -101,10 +100,12 @@
 }
 
 .header {
+  transition: all 0.3s;
   position: fixed;
   top: 0;
   z-index: 11;
   width: 100%;
+  background-color: #d6d6d6;
   min-height: 10rem;
   display: flex;
   align-items: center;
@@ -391,12 +392,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  -webkit-margin-before: 4rem;
-          margin-block-start: 4rem;
+  margin-block-start: 4rem;
 }
 .main__about > p {
-  -webkit-margin-before: 1rem;
-          margin-block-start: 1rem;
+  margin-block-start: 1rem;
   color: #5b63b7;
   font-size: 12px;
 }
@@ -415,8 +414,7 @@
 }
 .footer {
   background-color: #5b63b7;
-  -webkit-padding-after: 3rem;
-          padding-block-end: 3rem;
+  padding-block-end: 3rem;
 }
 .footer * {
   outline: 1px dashed aqua;
@@ -468,31 +466,32 @@
 @media screen and (min-width: 768px) {
   .main__hero .hero--text {
     flex: 1.5 0 0;
-    -webkit-padding-end: 5rem;
-            padding-inline-end: 5rem;
+    padding-inline-end: 5rem;
   }
 }
 @media screen and (min-width: 1024px) {
   .main__hero .hero--text {
-    -webkit-padding-end: 10rem;
-            padding-inline-end: 10rem;
+    padding-inline-end: 10rem;
   }
 }
 .main__hero .hero--text h1 span {
   color: #5b63b7;
 }
 .main__hero .hero--text p {
-  -webkit-margin-before: 1rem;
-          margin-block-start: 1rem;
+  margin-block-start: 1rem;
   color: #5b63b7;
   font-size: 16px;
   max-width: 550px;
 }
 .main__hero .hero--text > .button {
-  -webkit-margin-before: 3rem;
-          margin-block-start: 3rem;
+  margin-block-start: 3rem;
   width: 40%;
   max-width: 250px;
+}
+@media screen and (max-width: 768px) {
+  .main__hero .hero--text > .button {
+    width: 90%;
+  }
 }
 .main__hero .hero--imgContainer {
   margin-block: 2rem;
@@ -559,29 +558,29 @@ li {
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 28px;
   letter-spacing: 0.05rem;
   font-weight: 700;
-  line-height: 28.8px;
+  line-height: 33.6px;
 }
 @media screen and (min-width: 768px) {
-  h1 {
-    font-size: 28px;
-  }
-}
-@media screen and (min-width: 1024px) {
   h1 {
     font-size: 32px;
   }
 }
+@media screen and (min-width: 1024px) {
+  h1 {
+    font-size: 40px;
+  }
+}
 @media screen and (min-width: 768px) {
   h1 {
-    line-height: 33.6px;
+    line-height: 38.4px;
   }
 }
 @media screen and (min-width: 1024px) {
   h1 {
-    line-height: 38.4px;
+    line-height: 48px;
   }
 }
 
@@ -618,6 +617,5 @@ h3 {
   max-width: 1440px;
   width: 80%;
   margin: 0 auto;
-  -webkit-padding-before: 10rem;
-          padding-block-start: 10rem;
+  padding-block-start: 10rem;
 }
