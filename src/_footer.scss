@@ -1,7 +1,7 @@
 .footer {
-    * {
-        outline: 1px dashed aqua;
-    }
+    // * {
+    //     outline: 1px dashed aqua;
+    // }
     background-color: $purple;
     padding-block-end: $margin-block-unit*3;
     &>[class*="footer__"] {

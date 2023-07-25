@@ -1,5 +1,5 @@
 const navButton = document.querySelector('.nav-button')
-const mobileMenu = document.querySelector('.nav--menu-mobile')
+// const mobileMenu = document.querySelector('.nav--menu-mobile')
 const projectList = document.getElementById('projectsContainer')
 const headerNav = document.querySelector('.header')
 // const trailElement = document.querySelector(".trail")
@@ -55,8 +55,7 @@ navButton.addEventListener('click', (e) => {
     e.preventDefault()
     let prefix =  e.target.classList[0]
     activeStattus(prefix,e.target)
-    activeStattus(mobileMenu.classList[0],mobileMenu)
-    // showMobileMenu()
+    
 })
 
 document.addEventListener('DOMContentLoaded', () => {

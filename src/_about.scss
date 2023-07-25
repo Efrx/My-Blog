@@ -1,7 +1,6 @@
 @import 'utils';
 
-.main__about {
-    min-height: 100vh;
+.main__about>div {
     display: flex;
     flex-direction: column;
     align-items: center;

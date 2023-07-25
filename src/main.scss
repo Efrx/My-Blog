@@ -7,7 +7,7 @@
 
 * {
     @include reset-pm();
-    // outline: 0.5px dashed $mex-pink;
+    // outline: 0.5px dashed $purple;
 }
 
 html {
@@ -63,8 +63,12 @@ h3 {
 .main { 
     // background-image: linear-gradient(to top, #5b63b7, #7e7ebf, #9e9ac7, #bab7cf, #d6d6d6);
     &>section {
-        @include responsive-size(280px, 80%, 1440px);
+        // @include responsive-size(280px, 100%, 1440px);
+        // width: 100vw;
         padding-block-start: $nav-height;
+        &>.wrap--section {
+            @include responsive-size(280px, 80%, 1440px);
+        }
     }
 }
 

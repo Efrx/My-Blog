@@ -19,57 +19,38 @@
         <nav class="header__nav">
 
             <ul class="header__nav--menu">
-                <li class="menu--item">
-                    <a class="cta-nav" href="">Home</a>
+
+                <li class="mobileOn desktopOn">
+                    <span class="logo" href="#header"></span>
                 </li>
-                <li class="menu--item">
-                    <a href="#About">About</a>
+
+                <li class="menuItem--container desktopOn">
+                    <div class="menu--item">
+                        <a href="">Home</a>
+                    </div>
+                    <div class="menu--item">
+                        <a href="#About">About</a>
+                    </div>
+                    <div class="menu--item">
+                        <a href="#Portfolio">Portfolio</a>
+                    </div>
+                    <div class="menu--item ">
+                        <a href="#Footer">Contact</a>
+                    </div>
                 </li>
-                <li class="menu--item">
-                    <a href="#Portfolio">Portfolio</a>
+
+                <li class="desktopOn">
+                    <span class="buttonMode" href="#header"></span>
                 </li>
-                <li class="menu--item">
-                    <a href="">Contact</a>
+
+                <li class="menu--item mobileOn">
+                    <button class="nav-button button">
+                        <span></span>
+                    </button>
                 </li>
             </ul>
 
-            <nav id="mobile-menu" class="nav--menu-mobile">
-                <div class="content">
-                    <ul class="menu--options">
-                        <li><a href="#">About me</a></li>
-                        <li><a href="#">Portfolio</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                    <ul class="contact--list">
-                        <li>
-                            <a href="#">
-                                GH
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                LN
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                TW
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-            <!--  -->
-            <nav class="header__nav-responsive">
 
-                <div class="mobile-home">
-                    <a class="cta-nav" href="">Home</a>
-                </div>
-
-                <button class="nav-button button">
-                    <span></span>
-                </button>
-            </nav>
         </nav>
 
     </header>
@@ -77,63 +58,69 @@
     <main class="main">
 <!-- ------------------------------------------------------ -->
         <section id="Hero" class="main__hero">
-            <div class="hero--text">
-                <h1> 
-                    <span>Efrain Ayala 👋</span> <br>
-                    Happy to create beautiful things for the web and always keep learning.
-                </h1>
-                <p>
-                    <!-- !Welcome to my website¡ -->
-                    potential web developer, currently in the process of becoming one, with a particular taste for design (occasionally graphic design) 
-                </p>
-
-                <div class="button">
-                    <a href="#Footer"><span>Contct me!</span></a>
+            <div class="wrap--section">
+                <div class="hero--text">
+                    <h1> 
+                        <span>Efrain Ayala 👋</span> <br>
+                        Happy to create beautiful things for the web and always keep learning.
+                    </h1>
+                    <p>
+                        <!-- !Welcome to my website¡ -->
+                        potential web developer, currently in the process of becoming one, with a particular taste for design (occasionally graphic design) 
+                    </p>
+    
+                    <div class="button">
+                        <a href="#Footer"><span>Contct me!</span></a>
+                    </div>
+    
                 </div>
-
+    
+                <picture class="hero--imgContainer imgContainer">
+                    <img src="assets/img/Recurso_hero.png" alt="">
+                </picture>
             </div>
-
-            <picture class="hero--imgContainer imgContainer">
-                <img src="assets/img/Recurso_hero.png" alt="">
-            </picture>
         </section>
 <!-- ------------------------------------------------------ -->
         <section id="About" class="main__about">
-            <h2 class="about--title">About me.</h2>
-            <p>Keep reading...</p>
+            <div class="wrap--section">
+                <h2 class="about--title">About me.</h2>
+                <p>Keep reading...</p>
 
-            <div class="about--imgContainer imgContainer">
-                <img src="assets/img/profile-photo_about.png" alt="">
-            </div>
+                <div class="about--imgContainer imgContainer">
+                    <img src="assets/img/profile-photo_about.png" alt="">
+                </div>
 
-            <div class="about--info">
+                <div class="about--info">
 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad molestiae quasi dolorum veritatis nesciunt omnis tempora debitis possimus officia ratione?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad molestiae quasi dolorum veritatis nesciunt omnis tempora debitis possimus officia ratione?</p>
 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex eius iste voluptatibus nemo!
-                </p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex eius iste voluptatibus nemo!
+                    </p>
 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe aliquam deleniti fuga officiis repellat ipsam voluptates molestiae ut sit, rem, aut dolorem unde non! Harum!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe aliquam deleniti fuga officiis repellat ipsam voluptates molestiae ut sit, rem, aut dolorem unde non! Harum!</p>
 
-                <ul class="skills--list">
-                    <li>JavaScript</li>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>SASS</li>
-                    <li>React JS</li>
-                </ul>
-            </div>
+                    <ul class="skills--list">
+                        <li>JavaScript</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>SASS</li>
+                        <li>React JS</li>
+                    </ul>
+                </div>
+                </div>
         </section>
 <!-- ------------------------------------------------------ -->
         <section id="Portfolio" class="main__projects">
-            <div class="projects--tittel">
-                <h2>My work</h2>
-                <span>Check out what I have been doing</span>
-            </div>
-        <div id="projectsContainer" class="projects-wraper">
-                <!-- <div class="main__projects" id="main__projects">
-    
-                </div> -->
+            <div class="wrap--section">
+                <div class="projects--tittel">
+                    <h2>My work</h2>
+                    <span>Check out what I have been doing</span>
+                </div>
+                <div id="projectsContainer" class="projects-wraper">
+                    <!-- <div class="main__projects" id="main__projects">
+        
+                    </div> -->
+                </div>
             </div>
         </section>
 <!-- ------------------------------------------------------ -->
@@ -153,11 +140,11 @@
             <div class="img-container">
                 <img class="project-img" src="" alt="">
             </div>
-
+    
             <div class="info-container">
                 <h2 class="project-title"></h2>
                 <p class="project-description"></p>
-
+    
                 <div class="project-button button" href="">
                     <a href="#"><span>Review</span></a>
                 </div>
@@ -167,4 +154,5 @@
 
     <script src="js/main.js" ></script>
 </body>
+
 </html>
