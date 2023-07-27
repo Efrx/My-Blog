@@ -13,6 +13,7 @@
 html {
     font-size: 62.5%;
     // border: 1px solid black;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -25,7 +26,6 @@ body {
 
 a {
     text-decoration: none;
-    // font-size: size(2);
     @include font-size($a-font-size-small, $a-font-size-medium, $a-font-size-large);
 }
 p {
@@ -61,6 +61,7 @@ h3 {
 }
 
 .main { 
+    z-index: $layout1;
     // background-image: linear-gradient(to top, #5b63b7, #7e7ebf, #9e9ac7, #bab7cf, #d6d6d6);
     &>section {
         // @include responsive-size(280px, 100%, 1440px);

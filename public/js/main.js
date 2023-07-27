@@ -1,8 +1,8 @@
 const navButton = document.querySelector('.nav-button')
-// const mobileMenu = document.querySelector('.nav--menu-mobile')
+const body = document.querySelector('body')
+const mobileMenu = document.querySelector('.mobileMenu')
 const projectList = document.getElementById('projectsContainer')
 const headerNav = document.querySelector('.header')
-// const trailElement = document.querySelector(".trail")
 const templateCard = document.getElementById('template-card').content
 const fragment = document.createDocumentFragment()
 const projects = [
@@ -51,19 +51,16 @@ const projects = [
     }
 ]
 let previous = getScrollTop()
-navButton.addEventListener('click', (e) => {
-    e.preventDefault()
-    let prefix =  e.target.classList[0]
-    activeStattus(prefix,e.target)
-    
-})
 
 document.addEventListener('DOMContentLoaded', () => {
-    printProjects();
-    
+    printProjects()
+    // handleResize()
     // this detects howmany px the scroll has been moved
     window.addEventListener('scroll', () => {
         const scrollTop = getScrollTop()
+        if (headerNav.classList.contains("static")) {
+            return
+        }
         // console.log("actual: ",scrollTop," prev: ",previous)
         if (scrollTop > previous) {
             // scroll down | header disapear
@@ -80,24 +77,58 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         previous = scrollTop;
     });
-
 })
 
-function showMobileMenu() {
+navButton.addEventListener('click', (e) => {
+    e.stopPropagation()
+    e.preventDefault()
+    // si presiona el boton -> abre y cierra
+    // se activa el estado de boton
+    e.target.classList.toggle('nav-button-active')
+    showMobileMenu()
+})
 
+body.addEventListener('click', (e) => {
+    e.stopPropagation()
+    // console.log(e.target.classList)
+    if (e.target.classList.length == 0) {
+        closeMobileMenu()
+        
+    } else {
+        if (!e.target.classList.contains('nav-button') 
+        && !e.target.classList.contains('mobileMenu')) {
+            closeMobileMenu()
+        }
+    }
+})
+
+const showMobileMenu = () => {
+    // el header se mantiene estatico
+    headerNav.classList.toggle('static')
+    
+    // se abre el menu mobile
+    mobileMenu.classList.toggle('open')
+}
+
+const closeMobileMenu = () => {
+    if(menuIsOpen()) {
+        // console.log('cerrarlo')
+        navButton.classList.toggle('nav-button-active')
+        mobileMenu.classList.toggle('open')
+    }
+}
+
+function menuIsOpen () {
+    if (mobileMenu.classList.contains('open')) {
+        // console.log('esta abrido...')
+        return true
+    }
+    return false
 }
 
 // this fn return the dom's current position in px 
 function getScrollTop() {
     return document.documentElement.scrollTop;
-}
-
-// aqui se le activa una clase 'active' al elemento target...
-const activeStattus = (prefix, target) => {
-    // si no solo activa o desactiva...
-    let active = '-active'
-    prefix = prefix + active
-    target.classList.toggle(prefix)
 }
 
 const printProjects = () => {
@@ -112,19 +143,3 @@ const printProjects = () => {
     });
     projectList.appendChild(fragment)
 }
-
-// printProjects()
-
-// const printProjects = () => {
-//     projectList.innerHTML = ''
-
-//     projects.forEach(project => {
-//         console.log(project)
-//     })
-// }
-
-// button-scroll
-// e.stopPropagation();
-// console.log('');
-
-// optimizar el navbar (esteticamente y ux)

@@ -8,6 +8,12 @@ $light-gray: #d6d6d6;
 $mex-pink: #ed5e93;
 $light-purple: #9296f0;
 
+// z-index layout structure
+$layout1: 1; // all sections
+$layout2: 10; // mobile nav bar menu & nav buton when is active
+$layout3: 20; //header
+
+
 $nav-height: 10rem;
 
 $nav-transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
@@ -79,14 +85,14 @@ $p-font-size-large: $base-font-size * 1.75;
     position: relative;
     &::before {
         position: absolute;
-        @include reset-pseudo(100%, 0px, $purple);
+        @include reset-pseudo(100%, 0, $black);
         bottom: -10%;
-        transition: all 0.3s;
+        transition: all 0.2s;
         z-index: -1;
     }
     &:hover::before {
-        height: 12px;
-        bottom: -5%;
+        height: 50%;
+        bottom: -10%;
     }
 }
 

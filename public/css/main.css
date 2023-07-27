@@ -103,7 +103,7 @@
   transition: all 0.3s;
   position: fixed;
   top: 0;
-  z-index: 11;
+  z-index: 10;
   width: 100%;
   background-color: rgba(214, 214, 214, 0.96);
   min-height: 10rem;
@@ -117,19 +117,78 @@
   margin: 0 auto;
 }
 .header .header__nav {
-  position: relative;
-  font-size: 16px;
-}
-.header .header__nav .header__nav--menu {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.header .header__nav .header__nav--menu * {
-  outline: 1px dashed #ed5e93;
+.header .header__nav .logo--container {
+  z-index: 20;
 }
-.header .header__nav .header__nav--menu li .logo {
-  align-self: start;
+.header .header__nav .menuItem--container {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  gap: 10%;
+}
+.header .header__nav .menuItem--container li > a:not(.cta-nav) {
+  color: #5b63b7;
+  font-weight: 700;
+  position: relative;
+}
+.header .header__nav .menuItem--container li > a:not(.cta-nav)::before {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 0;
+  background-color: #000000;
+  clear: both;
+  bottom: -10%;
+  transition: all 0.2s;
+  z-index: -1;
+}
+.header .header__nav .menuItem--container li > a:not(.cta-nav):hover::before {
+  height: 50%;
+  bottom: -10%;
+}
+.header .header__nav .menuItem--container li > a.cta-nav {
+  color: #5b63b7;
+  font-weight: 700;
+  position: relative;
+}
+.header .header__nav .menuItem--container li > a.cta-nav::before {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 12px;
+  background-color: #5b63b7;
+  clear: both;
+  bottom: -5%;
+  z-index: -1;
+}
+.header .menu--item a {
+  color: #5b63b7;
+  font-weight: 700;
+  position: relative;
+}
+.header .menu--item a::before {
+  position: absolute;
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 0;
+  background-color: #000000;
+  clear: both;
+  bottom: -10%;
+  transition: all 0.2s;
+  z-index: -1;
+}
+.header .menu--item a:hover::before {
+  height: 50%;
+  bottom: -10%;
+}
+.header .logo {
   display: block;
   width: 80px;
   height: 40px;
@@ -137,62 +196,33 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  transition: all 0.2s;
 }
-.header .header__nav .header__nav--menu li .buttonMode {
-  align-self: start;
-  display: block;
+.header .logo:hover {
+  transform: scale(1.1);
+}
+.header .buttonMode {
   width: 80px;
   height: 40px;
   background-image: url("../assets/svg/buttonOff_mode.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.header .buttonMode > button {
+  flex: 1 0 0;
+  height: 80%;
+  width: 40%;
+  background: none;
+  outline: none;
+  border: none;
   cursor: pointer;
 }
-.header .menuItem--container {
-  display: flex;
-  justify-content: space-around;
-  text-align: center;
-  gap: 10%;
-}
-.header .menuItem--container a:not(.cta-nav) {
-  color: #000000;
-  font-weight: 700;
-  position: relative;
-}
-.header .menuItem--container a:not(.cta-nav)::before {
-  position: absolute;
-  content: "";
-  display: inline-block;
-  width: 100%;
-  height: 0px;
-  background-color: #5b63b7;
-  clear: both;
-  bottom: -10%;
-  transition: all 0.3s;
-  z-index: -1;
-}
-.header .menuItem--container a:not(.cta-nav):hover::before {
-  height: 12px;
-  bottom: -5%;
-}
-.header .menuItem--container .cta-nav {
-  color: #000000;
-  font-weight: 700;
-  position: relative;
-}
-.header .menuItem--container .cta-nav::before {
-  position: absolute;
-  content: "";
-  display: inline-block;
-  width: 100%;
-  height: 12px;
-  background-color: #5b63b7;
-  clear: both;
-  bottom: -5%;
-  z-index: -1;
-}
 .header .nav-button {
+  z-index: 10;
   height: 30px;
   width: 30px;
   background: none;
@@ -224,6 +254,7 @@
   background: none;
   outline: none;
   border: none;
+  z-index: 20;
 }
 .header .nav-button-active::before {
   transform: translateY(220%) rotate(45deg);
@@ -232,15 +263,59 @@
   width: 100%;
   transform: translateY(-540%) rotate(-45deg);
 }
+.header .mobileMenu {
+  animation: menuDeploy;
+  position: fixed;
+  background: rgba(214, 214, 214, 0.96);
+  top: 0;
+  right: 0;
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 3rem;
+  padding-block-start: 5rem;
+  padding-block-end: 3rem;
+}
+.header .mobileMenu .mobileMenu__itemContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+@media screen and (max-width: 670px) {
+  .header .mobileMenu {
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    padding-inline: 3rem;
+    padding-block-start: 8rem;
+    padding-block-end: 5rem;
+  }
+}
+.header #mobileMenu:not(.open) {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
 @media screen and (min-width: 767px) {
-  .header .header__nav--menu li:not(.desktopOn) {
+  .header .header__nav > *:not(.desktopOn) {
+    display: none;
+  }
+  .header .header .nav--mobile {
     display: none;
   }
 }
 @media screen and (max-width: 766px) {
-  .header li:not(.mobileOn) {
+  .header .header__nav > *:not(.mobileOn) {
     display: none;
   }
+}
+
+.header .static {
+  box-shadow: none;
 }
 
 .button {
@@ -369,7 +444,6 @@
 }
 
 .main__hero {
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -400,6 +474,12 @@
   font-size: 16px;
   max-width: 550px;
 }
+.main__hero .wrap--section .hero--text p a {
+  color: #5b63b7;
+}
+.main__hero .wrap--section .hero--text p a:hover {
+  color: #ed5e93;
+}
 .main__hero .wrap--section .hero--text > .button {
   margin-block-start: 3rem;
   width: 40%;
@@ -427,6 +507,7 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -529,6 +610,9 @@ h3 {
   }
 }
 
+.main {
+  z-index: 1;
+}
 .main > section {
   padding-block-start: 10rem;
 }

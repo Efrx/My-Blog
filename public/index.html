@@ -15,44 +15,55 @@
 </head>
 <body>
     <header class="header" id="header">
-        
         <nav class="header__nav">
+            <div class="mobileOn desktopOn logo--container">
+                <a class="logo" href="index.html"></a>
+            </div>
 
-            <ul class="header__nav--menu">
-
-                <li class="mobileOn desktopOn">
-                    <span class="logo" href="#header"></span>
-                </li>
-
-                <li class="menuItem--container desktopOn">
-                    <div class="menu--item">
-                        <a href="">Home</a>
-                    </div>
-                    <div class="menu--item">
+            <button class="nav-button button mobileOn">
+                <span></span>
+            </button>
+            <!-- ------------------------------------------------- -->
+            <nav id="mobileMenu" class="mobileMenu mobileOn">
+                <ul class="mobileMenu__itemContainer">
+                    <li class="menu--item">
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li class="menu--item">
                         <a href="#About">About</a>
-                    </div>
-                    <div class="menu--item">
+                    </li>
+                    <li class="menu--item">
                         <a href="#Portfolio">Portfolio</a>
-                    </div>
-                    <div class="menu--item ">
+                    </li>
+                    <li class="menu--item ">
                         <a href="#Footer">Contact</a>
-                    </div>
+                    </li>
+                </ul>
+            </nav>
+            <!-- ------------------------------------------------- -->
+            <ul class="menuItem--container desktopOn">
+                <li class="menu--item">
+                    <a href="index.html">Home</a>
                 </li>
-
-                <li class="desktopOn">
-                    <span class="buttonMode" href="#header"></span>
+                <li class="menu--item">
+                    <a href="#About">About</a>
                 </li>
-
-                <li class="menu--item mobileOn">
-                    <button class="nav-button button">
-                        <span></span>
-                    </button>
+                <li class="menu--item">
+                    <a href="#Portfolio">Portfolio</a>
+                </li>
+                <li class="menu--item ">
+                    <a href="#Footer">Contact</a>
                 </li>
             </ul>
 
+            <div class="buttonMode desktopOn">
+                <button class="mode-on" ></button>
+                <button class="mode-off" ></button>
+            </div>
+
+            
 
         </nav>
-
     </header>
 
     <main class="main">
@@ -66,7 +77,7 @@
                     </h1>
                     <p>
                         <!-- !Welcome to my website¡ -->
-                        potential web developer, currently in the process of becoming one, with a particular taste for design (occasionally graphic design) 
+                        potential web developer, currently in the process of becoming one, with a particular taste for design (<a href="#">occasionally graphic design</a>) 
                     </p>
     
                     <div class="button">

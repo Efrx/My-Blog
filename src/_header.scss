@@ -1,76 +1,96 @@
 @import 'utils';
 
+// .header-active {
+//     height: 100vh;
+//     background-color: rgba($primary-color, 0.96);
+// }
 
 .header {
+    // * {outline: 1px dashed $mex-pink;}
     // outline: 1px dashed $mex-pink;
     transition: all 0.3s;
     position: fixed;
     top: 0;
-    z-index: 11;
+    z-index: $layout2;
     width: 100%;
     background-color: rgba($primary-color, 0.96);
-    // box-shadow: #020c1b 0px 0px 15px -15px; rgba($, 0.85);
     min-height: $nav-height;
     display: flex;
     align-items: center;
+
     &>[class*="header__"] {
         @include responsive-size(280px, 80%, 1440px);
     }
+
     .header__nav {
-        position: relative;
-        font-size: size(2);
-        .header__nav--menu {
-            *{outline: 1px dashed $mex-pink;}
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo--container {
+            z-index: $layout3;
+        }
+        .menuItem--container {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            li{
-                .logo {
-                    align-self: start;
-                    // outline: 1px solid lightblue;
-                    display: block;
-                    width: $h1-font-size-large*2;
-                    height: $h1-font-size-large;
-                    background-image: url('../assets/svg/EA_logo.svg');
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    background-size: contain;
-                }
-                .buttonMode {
-                    align-self: start;
-                    // outline: 1px solid lightblue;
-                    display: block;
-                    width: $h1-font-size-large*2;
-                    height: $h1-font-size-large;
-                    background-image: url('../assets/svg/buttonOff_mode.svg');
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    background-size: contain;
-                    cursor: pointer;
-                }
+            justify-content: center;
+            text-align: center;
+            gap: 10%;
+
+            li>a:not(.cta-nav) {
+                color: $purple;
+                font-weight: 700;
+                @include hover-nav-options($purple);
+            }
+            li>a.cta-nav {
+                color: $purple;
+                font-weight: 700;
+                @include cta-nav-options();
             }
         }
     }
 
-    .menuItem--container {
-        display: flex;
-        justify-content: space-around;
-        text-align: center;
-        gap: 10%;
-
-        a:not(.cta-nav) {
-            color: $black;
+    .menu--item {
+        a{
+            color: $purple;
             font-weight: 700;
             @include hover-nav-options($purple);
         }
-        .cta-nav {
-            color: $black;
-            font-weight: 700;
-            @include cta-nav-options();
+    }
+
+    .logo {
+        display: block;
+        width: $h1-font-size-large*2;
+        height: $h1-font-size-large;
+        background-image: url('../assets/svg/EA_logo.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        transition: all 0.2s;
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    .buttonMode {
+        width: $h1-font-size-large*2;
+        height: $h1-font-size-large;
+        background-image: url('../assets/svg/buttonOff_mode.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        &>button {
+            flex: 1 0 0;
+            @include nav-button-reset(40%,80%);
+            cursor: pointer;
         }
     }
 
     .nav-button { 
+        z-index: $layout2;
         @include nav-button-reset(30px, 30px);
         
         &::before {
@@ -92,26 +112,65 @@
             width: 100%;
             transform: translateY(-540%) rotate(-45deg);
         }
+        z-index: $layout3;
+    }
+
+    .mobileMenu {
+        // transition: all 0.3s linear;
+        animation: menuDeploy;
+        position: fixed;
+        background: rgba($primary-color, 0.96);
+        // background: rgba(red, 0.96);
+        top: 0;
+        right: 0;
+        width: 50vw;
+        height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        padding-inline: $margin-block-unit*3;
+        padding-block-start: $margin-block-unit*5;
+        padding-block-end: $margin-block-unit*3;
+        .mobileMenu__itemContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: $margin-block-unit*2;
+        }
+        @media screen and (max-width:670px) {
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            padding-inline: $margin-block-unit*3;
+            padding-block-start: $margin-block-unit*8;
+            padding-block-end: $margin-block-unit*5;
+        }
+    }
+    #mobileMenu:not(.open) {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
     }
 
     @media screen and (min-width: 767px) { //ancho maximo
-        .header__nav--menu {
-            // // width: 50%;
-            // margin: 0 auto;
-
-            // justify-content: center;
-            // text-align: center;
-            // gap: 10%;
-
-            li:not(.desktopOn) {
+        .header__nav {
+            &>*:not(.desktopOn) {
                 display: none;
             }
         }
+        .header {
+            .nav--mobile{display: none;}
+        }
     }
     @media screen and (max-width: 766px) {
-            li:not(.mobileOn) {
+        .header__nav {
+            &>*:not(.mobileOn) {
                 display: none;
             }
+        }
     }
     // --------------------
     // .nav--menu-mobile {
@@ -202,6 +261,12 @@
         
     // }
     // ---------------------
+}
+
+.header {
+    .static {
+        box-shadow: none
+    }
 }
 
 // @media screen and (max-width: 767px) { //ancho maximo
